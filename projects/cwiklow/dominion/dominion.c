@@ -669,7 +669,7 @@ int playAdventurer(int currentPlayer, struct gameState *state)
 			z++;
 		}
 	}	
-
+	
 	while(z-1>=0)
 	{
 		state->discard[currentPlayer][state->discardCount[currentPlayer]++]=temphand[z-1]; // discard all cards in play that have been drawn
@@ -728,10 +728,10 @@ int playVillage(int currentPlayer, struct gameState *state, int handPos)
 {
 	//+1 Card
 	drawCard(currentPlayer, state);
-			
+
 	//+2 Actions
 	state->numActions = state->numActions + 2;
-			
+
 	//discard played card from hand
 	discardCard(handPos, currentPlayer, state, 0);
 
@@ -1271,7 +1271,6 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
 int discardCard(int handPos, int currentPlayer, struct gameState *state, int trashFlag)
 {
-	
   //if card is not trashed, added to Played pile 
   if (trashFlag < 1)
     {
@@ -1279,7 +1278,7 @@ int discardCard(int handPos, int currentPlayer, struct gameState *state, int tra
       state->playedCards[state->playedCardCount] = state->hand[currentPlayer][handPos]; 
       state->playedCardCount++;
     }
-	
+
   //set played card to -1
   state->hand[currentPlayer][handPos] = -1;
 	
